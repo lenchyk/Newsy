@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w8e-ir-GnO">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="3vi-8n-gLc">
+            <objects>
+                <viewController id="ZfJ-2G-bHm" customClass="MainViewController" customModule="Newsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y2r-w8-kze">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZ3-m7-WKE" customClass="EmptyStateView" customModule="Newsy" customModuleProvider="target">
+                                <rect key="frame" x="87" y="308.5" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="8Q0-N0-nGB"/>
+                                    <constraint firstAttribute="width" constant="240" id="XER-sb-hRi"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMx-11-6vy">
+                                <rect key="frame" x="0.0" y="70" width="414" height="743"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JR8-U2-bhJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="UE1-NL-iJb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rR7-AG-5N6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JR8-U2-bhJ" firstAttribute="trailing" secondItem="rR7-AG-5N6" secondAttribute="trailing" id="5gY-BB-RiV"/>
+                            <constraint firstItem="rR7-AG-5N6" firstAttribute="bottom" secondItem="NMx-11-6vy" secondAttribute="bottom" id="9R1-Jz-I4S"/>
+                            <constraint firstItem="NMx-11-6vy" firstAttribute="leading" secondItem="rR7-AG-5N6" secondAttribute="leading" id="DM9-ZI-s39"/>
+                            <constraint firstItem="zZ3-m7-WKE" firstAttribute="centerY" secondItem="rR7-AG-5N6" secondAttribute="centerY" id="KUl-Zv-Oab"/>
+                            <constraint firstItem="JR8-U2-bhJ" firstAttribute="leading" secondItem="rR7-AG-5N6" secondAttribute="leading" id="KcO-cn-kPc"/>
+                            <constraint firstItem="JR8-U2-bhJ" firstAttribute="top" secondItem="y2r-w8-kze" secondAttribute="top" id="b5T-hF-17f"/>
+                            <constraint firstItem="zZ3-m7-WKE" firstAttribute="centerX" secondItem="rR7-AG-5N6" secondAttribute="centerX" id="sfm-ky-Ika"/>
+                            <constraint firstItem="NMx-11-6vy" firstAttribute="top" secondItem="JR8-U2-bhJ" secondAttribute="bottom" id="uY0-3U-Uv8"/>
+                            <constraint firstItem="rR7-AG-5N6" firstAttribute="trailing" secondItem="NMx-11-6vy" secondAttribute="trailing" id="ysJ-Wn-tKp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Main" image="homekit" catalog="system" id="d2A-DQ-SV5"/>
+                    <connections>
+                        <outlet property="emptyStateView" destination="zZ3-m7-WKE" id="R1f-bJ-LLE"/>
+                        <outlet property="newsTableView" destination="NMx-11-6vy" id="4LC-yb-SNg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xq1-1W-Pt5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656.52173913043487" y="-315.40178571428572"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="8ED-rF-nXD">
+            <objects>
+                <tabBarController id="w8e-ir-GnO" customClass="TabBarViewController" customModule="Newsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Ad-Lu-sZM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZfJ-2G-bHm" kind="relationship" relationship="viewControllers" id="n7D-zd-1Pk"/>
+                        <segue destination="YhN-Y9-Mhh" kind="relationship" relationship="viewControllers" id="uOL-cd-BB8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tZV-n2-Fk4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-230" y="14"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="i5e-Vt-dcu">
+            <objects>
+                <viewController id="YhN-Y9-Mhh" customClass="FavoritesViewController" customModule="Newsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qFn-Ch-bNM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alI-5f-sgb" customClass="EmptyStateView" customModule="Newsy" customModuleProvider="target">
+                                <rect key="frame" x="87" y="308.5" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4hf-CQ-Mcz"/>
+                                    <constraint firstAttribute="height" constant="240" id="kjB-VC-TiC"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Aau-o1-ZQi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mTb-bQ-dVZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="alI-5f-sgb" firstAttribute="centerX" secondItem="mTb-bQ-dVZ" secondAttribute="centerX" id="1Jy-Pm-0a8"/>
+                            <constraint firstItem="Aau-o1-ZQi" firstAttribute="leading" secondItem="mTb-bQ-dVZ" secondAttribute="leading" id="5Zi-iy-5NX"/>
+                            <constraint firstItem="mTb-bQ-dVZ" firstAttribute="bottom" secondItem="Aau-o1-ZQi" secondAttribute="bottom" id="BNV-jC-TFI"/>
+                            <constraint firstItem="alI-5f-sgb" firstAttribute="centerY" secondItem="mTb-bQ-dVZ" secondAttribute="centerY" id="E2q-hl-ost"/>
+                            <constraint firstItem="mTb-bQ-dVZ" firstAttribute="trailing" secondItem="Aau-o1-ZQi" secondAttribute="trailing" id="JM7-pz-4U1"/>
+                            <constraint firstItem="Aau-o1-ZQi" firstAttribute="top" secondItem="mTb-bQ-dVZ" secondAttribute="top" id="ScD-JD-RCl"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart.circle" catalog="system" id="QK4-0C-cF7"/>
+                    <connections>
+                        <outlet property="emptyStateView" destination="alI-5f-sgb" id="04S-CM-Dz8"/>
+                        <outlet property="favoritesTableView" destination="Aau-o1-ZQi" id="j01-Mb-iM1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyr-gb-JHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="660" y="448"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart.circle" catalog="system" width="128" height="121"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
