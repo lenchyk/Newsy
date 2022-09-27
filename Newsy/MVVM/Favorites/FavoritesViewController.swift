@@ -7,17 +7,49 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: UIViewController, UITableViewDelegate {
     @IBOutlet private var emptyStateView: EmptyStateView!
     @IBOutlet private var favoritesTableView: UITableView!
+    private var favoritesViewModel: FavoritesViewModel?
+    private var dataSource: ArticlesTableViewDataSource<FavoriteTableViewCell, ArticleData>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureEmptyState()
+        initialSetup()
     }
     
-    private func configureEmptyState() {
-        //favoritesTableView.isHidden = true
+    private func initialSetup() {
         emptyStateView.setupUI(for: .favorites)
+        favoritesViewModel = FavoritesViewModel()
+        configureDataSource()
+        favoritesTableView.delegate = self
+        favoritesTableView.register(
+            FavoriteTableViewCell.nib(),
+            forCellReuseIdentifier: Constants.Favorite.cellIdentifier
+        )
+        favoritesViewModel?.bindViewModelToController = { [weak self] in
+            self?.configureDataSource()
+        }
+    }
+    
+    // MARK: - Data Source
+    private func configureDataSource() {
+        guard let articles = favoritesViewModel?.articles else { return }
+        if articles.isEmpty {
+            favoritesTableView.isHidden = true
+        } else {
+            dataSource = ArticlesTableViewDataSource(
+                cellIdentifier: Constants.Favorite.cellIdentifier,
+                items: articles,
+                configureCells: { cell, data in
+                    cell.configure(with: data)
+                }
+            )
+            
+            DispatchQueue.main.async {
+                self.favoritesTableView.dataSource = self.dataSource
+                self.favoritesTableView.reloadData()
+            }
+        }
     }
 }

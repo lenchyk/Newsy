@@ -8,6 +8,9 @@
 import UIKit
 
 enum Constants {
+    enum Articles {
+        static let name = "ArticleData"
+    }
     enum API {
         static let key = "240bc2e1153c4410bdfeb3ae6cf27303"
         static let url = "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey="
@@ -27,11 +30,18 @@ enum Constants {
         static var requestError: (String) -> String = { error in
             return "Request failed with \(error)"
         }
+        static let delegateError = "Unexpected app delegate type"
     }
     enum Main {
         static let loadTime: TimeInterval = 3
         static let cellHeight: CGFloat = 200
         static let cellIdentifier = "ArticleTableViewCell"
         static let loadingCellIdentifier = "LoadingTableViewCell"
+    }
+    enum Favorite {
+        static let cellIdentifier = "FavoriteTableViewCell"
+    }
+    enum NotificationType {
+        static let articleSaved = Notification.Name(rawValue: "Article saved") 
     }
 }

@@ -14,7 +14,7 @@ struct Article: Decodable {
     let description: String?
     let url: URL?
     let urlToImage: String?
-    let publishedAt: String? // should be in proper format
+    let publishedAt: String?
     let content: String?
     
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,28 @@ struct Article: Decodable {
     }
 }
 
-struct Source: Decodable {
+class Source: NSObject, NSSecureCoding, Decodable {
+    func encode(with coder: NSCoder) {
+        coder.encode(id, forKey: "id")
+        coder.encode(name, forKey: "name")
+    }
+    
+    required init?(coder: NSCoder) {
+        guard
+            let id = coder.decodeObject(of: [NSString.self], forKey: "id") as? String,
+            let name = coder.decodeObject(of: [NSString.self], forKey: "name") as? String
+        else {
+            return nil
+        }
+        
+        self.id = id
+        self.name = name
+    }
+    
+    static var supportsSecureCoding: Bool {
+        return true
+    }
+
     let id: String?
     let name: String?
 }

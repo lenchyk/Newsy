@@ -49,17 +49,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFv-yi-Usr">
-                        <rect key="frame" x="339" y="175" width="75" height="25"/>
+                        <rect key="frame" x="228" y="175" width="120" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="hsy-pM-JIk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                        <state key="normal" title="Save"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <state key="normal" title="Add to favorites"/>
+                        <connections>
+                            <action selector="saveButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="M2k-0z-JR2"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="aFv-yi-Usr" secondAttribute="bottom" id="0po-f2-ZZu"/>
-                    <constraint firstItem="aFv-yi-Usr" firstAttribute="leading" secondItem="sOP-CI-Tsk" secondAttribute="trailing" constant="185" id="3qu-bB-TfB"/>
                     <constraint firstItem="Yjf-Di-L8b" firstAttribute="top" secondItem="6Kt-99-ffr" secondAttribute="bottom" constant="5" id="GO5-QS-1fD"/>
                     <constraint firstItem="5p5-bS-QCx" firstAttribute="top" secondItem="gv4-Of-X5A" secondAttribute="bottom" constant="8" id="Gbi-GX-zSI"/>
                     <constraint firstItem="Yjf-Di-L8b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JNo-Gx-TdR"/>
@@ -71,8 +73,8 @@
                     <constraint firstItem="sOP-CI-Tsk" firstAttribute="top" secondItem="Yjf-Di-L8b" secondAttribute="bottom" constant="3" id="cjM-ee-gPj"/>
                     <constraint firstItem="aFv-yi-Usr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5p5-bS-QCx" secondAttribute="bottom" constant="15" id="d0a-9D-pa9"/>
                     <constraint firstItem="sOP-CI-Tsk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="irS-xZ-eea"/>
+                    <constraint firstItem="aFv-yi-Usr" firstAttribute="centerX" secondItem="5p5-bS-QCx" secondAttribute="centerX" id="ndm-wA-ZiT"/>
                     <constraint firstItem="sOP-CI-Tsk" firstAttribute="trailing" secondItem="Yjf-Di-L8b" secondAttribute="trailing" id="pDM-w1-QjB"/>
-                    <constraint firstAttribute="trailing" secondItem="aFv-yi-Usr" secondAttribute="trailing" id="sYP-PS-oh4"/>
                     <constraint firstItem="gv4-Of-X5A" firstAttribute="leading" secondItem="Yjf-Di-L8b" secondAttribute="trailing" constant="8" symbolic="YES" id="tA1-LL-Umt"/>
                     <constraint firstItem="gv4-Of-X5A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="unk-m2-Qfh"/>
                 </constraints>
@@ -82,6 +84,7 @@
                 <outlet property="articleImageView" destination="Yjf-Di-L8b" id="B94-EE-xtO"/>
                 <outlet property="authorLabel" destination="sOP-CI-Tsk" id="yyB-S3-FNf"/>
                 <outlet property="descriptionLabel" destination="5p5-bS-QCx" id="buB-CS-FZ6"/>
+                <outlet property="saveButton" destination="aFv-yi-Usr" id="zwF-iM-Iog"/>
                 <outlet property="sourceLabel" destination="6Kt-99-ffr" id="1Ji-XK-Jt1"/>
                 <outlet property="titleLabel" destination="gv4-Of-X5A" id="kOR-X0-Ra2"/>
             </connections>

@@ -13,6 +13,19 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
+    @IBOutlet var saveButton: UIButton!
+    
+    @IBAction func saveButtonAction(_ sender: Any) {
+        saveButtonIsPressed()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        sourceLabel.text = nil
+        titleLabel.text = nil
+        descriptionLabel.text = nil
+        authorLabel.text = nil
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,11 +33,17 @@ class ArticleTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        if selected {
+            cellIsSelected()
+        }
     }
     
     static func nib() -> UINib {
         return UINib(nibName: Constants.Main.cellIdentifier, bundle: nil)
     }
+    
+    var saveButtonIsPressed: () -> () = {}
+    var cellIsSelected: () -> () = {}
     
     func configureCell(with data: Article) {
         titleLabel.text = data.title

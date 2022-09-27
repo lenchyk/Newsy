@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BC6A0C2F28E1F85300CDF7E1 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C2D28E1F85300CDF7E1 /* LoadingTableViewCell.swift */; };
-		BC6A0C3028E1F85300CDF7E1 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC6A0C2E28E1F85300CDF7E1 /* LoadingTableViewCell.xib */; };
+		BC2D3B3628E3708700058104 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2D3B3428E3708700058104 /* FavoriteTableViewCell.swift */; };
+		BC2D3B3728E3708700058104 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC2D3B3528E3708700058104 /* FavoriteTableViewCell.xib */; };
+		BC6A0C3628E260A500CDF7E1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C3528E260A500CDF7E1 /* WebViewController.swift */; };
+		BC6A0C3A28E2614200CDF7E1 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C3928E2614200CDF7E1 /* WebViewModel.swift */; };
+		BC6A0C3E28E2CD4800CDF7E1 /* ArticleData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C3C28E2CD4700CDF7E1 /* ArticleData.xcdatamodeld */; };
+		BC6A0C4128E2CDD100CDF7E1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C4028E2CDD100CDF7E1 /* CoreDataStack.swift */; };
+		BC6A0C4428E2D40C00CDF7E1 /* SourceTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C4328E2D40B00CDF7E1 /* SourceTransformer.swift */; };
+		BC6A0C4F28E2D75A00CDF7E1 /* ArticleData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C4D28E2D75A00CDF7E1 /* ArticleData+CoreDataClass.swift */; };
+		BC6A0C5028E2D75A00CDF7E1 /* ArticleData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6A0C4E28E2D75A00CDF7E1 /* ArticleData+CoreDataProperties.swift */; };
 		BCCF6DB228DE0FD7000767F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6DB128DE0FD7000767F0 /* AppDelegate.swift */; };
 		BCCF6DB428DE0FD7000767F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6DB328DE0FD7000767F0 /* SceneDelegate.swift */; };
-		BCCF6DBC28DE0FD8000767F0 /* Newsy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6DBA28DE0FD8000767F0 /* Newsy.xcdatamodeld */; };
 		BCCF6DBE28DE0FE9000767F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCCF6DBD28DE0FE9000767F0 /* Assets.xcassets */; };
 		BCCF6DC128DE0FE9000767F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCCF6DBF28DE0FE9000767F0 /* LaunchScreen.storyboard */; };
 		BCCF6E0C28DF7180000767F0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6E0B28DF717F000767F0 /* MainViewController.swift */; };
@@ -33,12 +39,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BC6A0C2D28E1F85300CDF7E1 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
-		BC6A0C2E28E1F85300CDF7E1 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		BC2D3B3428E3708700058104 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
+		BC2D3B3528E3708700058104 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		BC6A0C3528E260A500CDF7E1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BC6A0C3928E2614200CDF7E1 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		BC6A0C3D28E2CD4700CDF7E1 /* Article.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Article.xcdatamodel; sourceTree = "<group>"; };
+		BC6A0C4028E2CDD100CDF7E1 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		BC6A0C4328E2D40B00CDF7E1 /* SourceTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTransformer.swift; sourceTree = "<group>"; };
+		BC6A0C4D28E2D75A00CDF7E1 /* ArticleData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BC6A0C4E28E2D75A00CDF7E1 /* ArticleData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArticleData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BCCF6DAE28DE0FD7000767F0 /* Newsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCCF6DB128DE0FD7000767F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCCF6DB328DE0FD7000767F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCCF6DBB28DE0FD8000767F0 /* Newsy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Newsy.xcdatamodel; sourceTree = "<group>"; };
 		BCCF6DBD28DE0FE9000767F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCCF6DC028DE0FE9000767F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCCF6DC228DE0FE9000767F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,13 +83,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BC6A0C2C28E1F83400CDF7E1 /* LoadingTableViewCell */ = {
+		BC2D3B3928E3708E00058104 /* FavoriteTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				BC6A0C2D28E1F85300CDF7E1 /* LoadingTableViewCell.swift */,
-				BC6A0C2E28E1F85300CDF7E1 /* LoadingTableViewCell.xib */,
+				BC2D3B3428E3708700058104 /* FavoriteTableViewCell.swift */,
+				BC2D3B3528E3708700058104 /* FavoriteTableViewCell.xib */,
 			);
-			path = LoadingTableViewCell;
+			path = FavoriteTableViewCell;
+			sourceTree = "<group>";
+		};
+		BC6A0C3428E25F9000CDF7E1 /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BC6A0C3528E260A500CDF7E1 /* WebViewController.swift */,
+				BC6A0C3928E2614200CDF7E1 /* WebViewModel.swift */,
+			);
+			path = WebViewController;
 			sourceTree = "<group>";
 		};
 		BCCF6DA528DE0FD7000767F0 = {
@@ -141,6 +162,7 @@
 		BCCF6E0228DE1CE4000767F0 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				BC6A0C3428E25F9000CDF7E1 /* WebViewController */,
 				BCCF6E0A28DF715F000767F0 /* MainViewController */,
 				BCCF6E2328DF9988000767F0 /* Favorites */,
 				BCCF6E1528DF7505000767F0 /* TabBarViewController */,
@@ -160,7 +182,7 @@
 		BCCF6E0628DE1D8F000767F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BC6A0C2C28E1F83400CDF7E1 /* LoadingTableViewCell */,
+				BC2D3B3928E3708E00058104 /* FavoriteTableViewCell */,
 				BCCF6E4428E02A37000767F0 /* TableViewCell */,
 				BCCF6E3128DF9F8F000767F0 /* EmptyStateView */,
 			);
@@ -187,7 +209,11 @@
 		BCCF6E0928DE1F01000767F0 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				BCCF6DBA28DE0FD8000767F0 /* Newsy.xcdatamodeld */,
+				BC6A0C4D28E2D75A00CDF7E1 /* ArticleData+CoreDataClass.swift */,
+				BC6A0C4E28E2D75A00CDF7E1 /* ArticleData+CoreDataProperties.swift */,
+				BC6A0C3C28E2CD4700CDF7E1 /* ArticleData.xcdatamodeld */,
+				BC6A0C4028E2CDD100CDF7E1 /* CoreDataStack.swift */,
+				BC6A0C4328E2D40B00CDF7E1 /* SourceTransformer.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -328,8 +354,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCCF6E5528E035A5000767F0 /* ArticleTableViewCell.xib in Resources */,
-				BC6A0C3028E1F85300CDF7E1 /* LoadingTableViewCell.xib in Resources */,
 				BCCF6E2128DF98CF000767F0 /* Main.storyboard in Resources */,
+				BC2D3B3728E3708700058104 /* FavoriteTableViewCell.xib in Resources */,
 				BCCF6DC128DE0FE9000767F0 /* LaunchScreen.storyboard in Resources */,
 				BCCF6DBE28DE0FE9000767F0 /* Assets.xcassets in Resources */,
 			);
@@ -342,22 +368,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCCF6DBC28DE0FD8000767F0 /* Newsy.xcdatamodeld in Sources */,
+				BC6A0C4128E2CDD100CDF7E1 /* CoreDataStack.swift in Sources */,
+				BC2D3B3628E3708700058104 /* FavoriteTableViewCell.swift in Sources */,
+				BC6A0C3628E260A500CDF7E1 /* WebViewController.swift in Sources */,
 				BCCF6E4C28E02C37000767F0 /* Articles.swift in Sources */,
-				BC6A0C2F28E1F85300CDF7E1 /* LoadingTableViewCell.swift in Sources */,
 				BCCF6E5828E035EE000767F0 /* ArticlesTableViewDataSource.swift in Sources */,
 				BCCF6E3828DFA107000767F0 /* Constants.swift in Sources */,
 				BCCF6E3C28DFBDE8000767F0 /* ApiService.swift in Sources */,
+				BC6A0C4F28E2D75A00CDF7E1 /* ArticleData+CoreDataClass.swift in Sources */,
 				BCCF6E2528DF999E000767F0 /* FavoritesViewController.swift in Sources */,
 				BCCF6E3328DF9F9F000767F0 /* EmptyStateView.swift in Sources */,
+				BC6A0C3E28E2CD4800CDF7E1 /* ArticleData.xcdatamodeld in Sources */,
+				BC6A0C3A28E2614200CDF7E1 /* WebViewModel.swift in Sources */,
 				BCCF6E2928DF99CA000767F0 /* FavoritesViewModel.swift in Sources */,
 				BCCF6DB228DE0FD7000767F0 /* AppDelegate.swift in Sources */,
 				BCCF6E6428E0EA6C000767F0 /* Array+extensions.swift in Sources */,
 				BCCF6DB428DE0FD7000767F0 /* SceneDelegate.swift in Sources */,
 				BCCF6E1728DF751E000767F0 /* TabBarViewController.swift in Sources */,
+				BC6A0C4428E2D40C00CDF7E1 /* SourceTransformer.swift in Sources */,
 				BCCF6E1A28DF75AC000767F0 /* TabBarViewModel.swift in Sources */,
 				BCCF6E4F28E02C9D000767F0 /* Article.swift in Sources */,
 				BCCF6E5428E035A5000767F0 /* ArticleTableViewCell.swift in Sources */,
+				BC6A0C5028E2D75A00CDF7E1 /* ArticleData+CoreDataProperties.swift in Sources */,
 				BCCF6E0C28DF7180000767F0 /* MainViewController.swift in Sources */,
 				BCCF6E2D28DF99E7000767F0 /* MainViewModel.swift in Sources */,
 			);
@@ -553,13 +585,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BCCF6DBA28DE0FD8000767F0 /* Newsy.xcdatamodeld */ = {
+		BC6A0C3C28E2CD4700CDF7E1 /* ArticleData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				BCCF6DBB28DE0FD8000767F0 /* Newsy.xcdatamodel */,
+				BC6A0C3D28E2CD4700CDF7E1 /* Article.xcdatamodel */,
 			);
-			currentVersion = BCCF6DBB28DE0FD8000767F0 /* Newsy.xcdatamodel */;
-			path = Newsy.xcdatamodeld;
+			currentVersion = BC6A0C3D28E2CD4700CDF7E1 /* Article.xcdatamodel */;
+			path = ArticleData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

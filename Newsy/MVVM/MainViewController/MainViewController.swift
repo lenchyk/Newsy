@@ -19,26 +19,17 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     private func initialSetup() {
+        emptyStateView.setupUI(for: .main)
         mainViewModel = MainViewModel()
         newsTableView.register(
             ArticleTableViewCell.nib(),
             forCellReuseIdentifier: Constants.Main.cellIdentifier
-        )
-        newsTableView.register(
-            LoadingTableViewCell.nib(),
-            forCellReuseIdentifier: Constants.Main.loadingCellIdentifier
         )
         mainViewModel?.bindViewModelToController = { [weak self] in
             self?.configureDataSource()
         }
         newsTableView.delegate = self
         configureRefreshControl()
-    }
-    
-    // MARK: - Empty state view when no data is available
-    private func configureEmptyState() {
-        newsTableView.isHidden = true
-        emptyStateView.setupUI(for: .main)
     }
     
     // MARK: - Refresh Control
@@ -60,13 +51,20 @@ class MainViewController: UIViewController, UITableViewDelegate {
     private func configureDataSource() {
         guard let articles = mainViewModel?.articles else { return }
         if articles.isEmpty {
-            configureEmptyState()
+            newsTableView.isHidden = true
         } else {
             dataSource = ArticlesTableViewDataSource(
                 cellIdentifier: Constants.Main.cellIdentifier,
                 items: articles,
                 configureCells: { cell, data in
                     cell.configureCell(with: data)
+                    cell.saveButtonIsPressed = { [weak self] in
+                        self?.mainViewModel?.actions?.shouldSaveFavourite(data)
+                    }
+                    cell.cellIsSelected = { [weak self] in
+                        guard let self = self else { return }
+                        self.mainViewModel?.actions?.shouldOpenWebView(self, data)
+                    }
                 }
             )
             
@@ -103,5 +101,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
                 self.newsTableView.tableFooterView = nil
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
