@@ -12,7 +12,7 @@ import CoreData
 extension ArticleData {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<ArticleData> {
-        return NSFetchRequest<ArticleData>(entityName: "ArticleData")
+        return NSFetchRequest<ArticleData>(entityName: Constants.Articles.name)
     }
 
     @NSManaged var source: Source?

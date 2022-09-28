@@ -28,12 +28,6 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRp-i2-c7H">
-                        <rect key="frame" x="20" y="94" width="33" height="16"/>
-                        <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdS-iW-6hr">
                         <rect key="frame" x="366.5" y="92" width="37.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -45,19 +39,16 @@
                     <constraint firstItem="wlm-OG-sJd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ca3-eX-qwZ"/>
                     <constraint firstItem="oex-t6-QDi" firstAttribute="leading" secondItem="wlm-OG-sJd" secondAttribute="leading" id="IVo-LK-8MB"/>
                     <constraint firstAttribute="right" secondItem="bdS-iW-6hr" secondAttribute="right" constant="10" id="VQf-XV-8GY"/>
-                    <constraint firstAttribute="bottom" secondItem="qRp-i2-c7H" secondAttribute="bottom" constant="10" id="aVR-Cb-hUE"/>
                     <constraint firstAttribute="bottom" secondItem="bdS-iW-6hr" secondAttribute="bottom" constant="10" id="bsD-68-qbP"/>
                     <constraint firstAttribute="trailing" secondItem="wlm-OG-sJd" secondAttribute="trailing" constant="10" id="dn9-6u-eeo"/>
                     <constraint firstItem="wlm-OG-sJd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="gew-ZJ-H2q"/>
-                    <constraint firstItem="qRp-i2-c7H" firstAttribute="leading" secondItem="wlm-OG-sJd" secondAttribute="leading" id="hqs-qd-VgE"/>
                     <constraint firstAttribute="trailing" secondItem="oex-t6-QDi" secondAttribute="trailing" constant="10" id="qxA-lQ-vyT"/>
                     <constraint firstItem="oex-t6-QDi" firstAttribute="top" secondItem="wlm-OG-sJd" secondAttribute="bottom" constant="4" id="tWe-ML-IJZ"/>
-                    <constraint firstItem="qRp-i2-c7H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oex-t6-QDi" secondAttribute="bottom" constant="10" id="vBm-nY-ED1"/>
+                    <constraint firstItem="bdS-iW-6hr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oex-t6-QDi" secondAttribute="bottom" constant="5" id="xla-AL-0kB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="authorLabel" destination="qRp-i2-c7H" id="sHb-AP-MMp"/>
                 <outlet property="descriptionLabel" destination="oex-t6-QDi" id="30S-xx-uyt"/>
                 <outlet property="sourceLabel" destination="bdS-iW-6hr" id="gRc-HC-jwN"/>
                 <outlet property="titleLabel" destination="wlm-OG-sJd" id="qnI-Gv-Cnz"/>

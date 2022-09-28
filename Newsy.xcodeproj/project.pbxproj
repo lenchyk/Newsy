@@ -35,7 +35,7 @@
 		BCCF6E5428E035A5000767F0 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6E5228E035A5000767F0 /* ArticleTableViewCell.swift */; };
 		BCCF6E5528E035A5000767F0 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCCF6E5328E035A5000767F0 /* ArticleTableViewCell.xib */; };
 		BCCF6E5828E035EE000767F0 /* ArticlesTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6E5728E035EE000767F0 /* ArticlesTableViewDataSource.swift */; };
-		BCCF6E6428E0EA6C000767F0 /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCF6E6328E0EA6C000767F0 /* Array+extensions.swift */; };
+		BCD3349028E46442003FC7D6 /* SecureKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCD3348F28E46442003FC7D6 /* SecureKeys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +69,7 @@
 		BCCF6E5228E035A5000767F0 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		BCCF6E5328E035A5000767F0 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		BCCF6E5728E035EE000767F0 /* ArticlesTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesTableViewDataSource.swift; sourceTree = "<group>"; };
-		BCCF6E6328E0EA6C000767F0 /* Array+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
+		BCD3348F28E46442003FC7D6 /* SecureKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SecureKeys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BCCF6DC228DE0FE9000767F0 /* Info.plist */,
+				BCD3348F28E46442003FC7D6 /* SecureKeys.plist */,
 			);
 			path = Plists;
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 		BCCF6E5B28E0E904000767F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BCCF6E6328E0EA6C000767F0 /* Array+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -358,6 +358,7 @@
 				BC2D3B3728E3708700058104 /* FavoriteTableViewCell.xib in Resources */,
 				BCCF6DC128DE0FE9000767F0 /* LaunchScreen.storyboard in Resources */,
 				BCCF6DBE28DE0FE9000767F0 /* Assets.xcassets in Resources */,
+				BCD3349028E46442003FC7D6 /* SecureKeys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +383,6 @@
 				BC6A0C3A28E2614200CDF7E1 /* WebViewModel.swift in Sources */,
 				BCCF6E2928DF99CA000767F0 /* FavoritesViewModel.swift in Sources */,
 				BCCF6DB228DE0FD7000767F0 /* AppDelegate.swift in Sources */,
-				BCCF6E6428E0EA6C000767F0 /* Array+extensions.swift in Sources */,
 				BCCF6DB428DE0FD7000767F0 /* SceneDelegate.swift in Sources */,
 				BCCF6E1728DF751E000767F0 /* TabBarViewController.swift in Sources */,
 				BC6A0C4428E2D40C00CDF7E1 /* SourceTransformer.swift in Sources */,

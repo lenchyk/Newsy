@@ -21,22 +21,24 @@ class FavoritesViewController: UIViewController, UITableViewDelegate {
     private func initialSetup() {
         emptyStateView.setupUI(for: .favorites)
         favoritesViewModel = FavoritesViewModel()
-        configureDataSource()
+        reloadDataSource()
         favoritesTableView.delegate = self
         favoritesTableView.register(
             FavoriteTableViewCell.nib(),
             forCellReuseIdentifier: Constants.Favorite.cellIdentifier
         )
         favoritesViewModel?.bindViewModelToController = { [weak self] in
-            self?.configureDataSource()
+            self?.reloadDataSource()
         }
     }
     
     // MARK: - Data Source
-    private func configureDataSource() {
+    private func reloadDataSource() {
         guard let articles = favoritesViewModel?.articles else { return }
         if articles.isEmpty {
-            favoritesTableView.isHidden = true
+            DispatchQueue.main.async {
+                self.favoritesTableView.isHidden = true
+            }
         } else {
             dataSource = ArticlesTableViewDataSource(
                 cellIdentifier: Constants.Favorite.cellIdentifier,

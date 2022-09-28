@@ -12,10 +12,12 @@ enum Constants {
         static let name = "ArticleData"
     }
     enum API {
-        static let key = "240bc2e1153c4410bdfeb3ae6cf27303"
         static let url = "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey="
-        static var urlPaginatedString: (Int) -> String = { page in
-            return "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&pageSize=\(pageSize)&page=\(page)&apiKey=\(key)"
+        static var urlPaginatedString: (Int, String) -> String = { page, apiKey in
+            return "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&pageSize=\(pageSize)&page=\(page)&apiKey=\(apiKey)"
+        }
+        static var urlSearchString: (String, Int, String) -> String = { word, page, apiKey in
+            return "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&sortBy=relevancy&pageSize=\(pageSize)&q=\(word)&page=\(page)&apiKey=\(apiKey)"
         }
         static let pageSize: Int = 10
     }
@@ -30,10 +32,16 @@ enum Constants {
         static var requestError: (String) -> String = { error in
             return "Request failed with \(error)"
         }
+        static var coreDataError: (NSError) -> String = { error in
+            return "Unresolved error: \(error) description: \(error.userInfo)"
+        }
         static let delegateError = "Unexpected app delegate type"
+        static let keyNotAvailableError = "The key is not available!"
+        static let noKeyFound = "Couldn't find the key"
     }
     enum Main {
         static let loadTime: TimeInterval = 3
+        static let bottomDistance: CGFloat = 100
         static let cellHeight: CGFloat = 200
         static let cellIdentifier = "ArticleTableViewCell"
         static let loadingCellIdentifier = "LoadingTableViewCell"
@@ -42,6 +50,9 @@ enum Constants {
         static let cellIdentifier = "FavoriteTableViewCell"
     }
     enum NotificationType {
-        static let articleSaved = Notification.Name(rawValue: "Article saved") 
+        static let articleSaved = Notification.Name(rawValue: "Article saved")
+    }
+    enum Common {
+        static let search = "Search"
     }
 }

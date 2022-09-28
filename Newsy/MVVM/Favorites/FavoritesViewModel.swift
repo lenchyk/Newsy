@@ -33,7 +33,7 @@ class FavoritesViewModel: NSObject, FavoritesViewModelProtocol {
             let articles = try managedContext.fetch(articlesFetch)
             self.articles = articles
         } catch let error as NSError {
-            print("Fetch error: \(error) description: \(error.userInfo)")
+            print(Constants.Error.coreDataError(error))
         }
     }
     

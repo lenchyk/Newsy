@@ -8,10 +8,9 @@
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell {
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var authorLabel: UILabel!
-    @IBOutlet var sourceLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var sourceLabel: UILabel!
     
     static func nib() -> UINib {
         return UINib(nibName: Constants.Favorite.cellIdentifier, bundle: nil)
@@ -28,7 +27,6 @@ class FavoriteTableViewCell: UITableViewCell {
     func configure(with data: ArticleData) {
         titleLabel.text = data.title
         descriptionLabel.text = data.articleDescription
-        authorLabel.text = data.author
         sourceLabel.text = data.source?.name
     }
 }

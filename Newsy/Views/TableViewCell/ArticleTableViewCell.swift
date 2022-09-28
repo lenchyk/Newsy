@@ -50,7 +50,7 @@ class ArticleTableViewCell: UITableViewCell {
         descriptionLabel.text = data.description
         authorLabel.text = data.author
         sourceLabel.text = data.source?.name
-        //setupImage(for: data.urlToImage)
+        setupImage(for: data.urlToImage)
     }
     
     private func setupImage(for urlString: String?) {

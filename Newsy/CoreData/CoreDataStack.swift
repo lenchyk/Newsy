@@ -19,7 +19,7 @@ class CoreDataStack {
         let container = NSPersistentContainer(name: modelName)
         container.loadPersistentStores { _, error in
             if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
+                print(Constants.Error.coreDataError(error))
             }
         }
         return container
@@ -34,7 +34,7 @@ class CoreDataStack {
             try managedContext.save()
             NotificationCenter.default.post(name: Constants.NotificationType.articleSaved, object: nil)
         } catch let error as NSError {
-            print("Unresolved error \(error), \(error.userInfo)")
+            print(Constants.Error.coreDataError(error))
         }
     }
 }

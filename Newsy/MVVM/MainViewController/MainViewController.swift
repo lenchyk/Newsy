@@ -7,9 +7,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDelegate, UISearchBarDelegate {
+    @IBOutlet private var loaderView: UIActivityIndicatorView!
     @IBOutlet private var newsTableView: UITableView!
     @IBOutlet private var emptyStateView: EmptyStateView!
+    @IBOutlet private var searchBar: UISearchBar!
     private var mainViewModel: MainViewModelProtocol?
     private var dataSource: ArticlesTableViewDataSource<ArticleTableViewCell, Article>?
     
@@ -19,8 +21,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     }
     
     private func initialSetup() {
-        emptyStateView.setupUI(for: .main)
+        configureUI()
         mainViewModel = MainViewModel()
+        configureLoader()
         newsTableView.register(
             ArticleTableViewCell.nib(),
             forCellReuseIdentifier: Constants.Main.cellIdentifier
@@ -32,6 +35,58 @@ class MainViewController: UIViewController, UITableViewDelegate {
         configureRefreshControl()
     }
     
+    private func configureUI() {
+        emptyStateView.setupUI(for: .main)
+        configureSearchBar()
+        configureRefreshControl()
+    }
+    
+    // show user loading when the app starts getting api data
+    private func configureLoader() {
+        newsTableView.isHidden = true
+        emptyStateView.isHidden = true
+        searchBar.isHidden = true
+        loaderView.startAnimating()
+        mainViewModel?.actions?.stopInitialLoader = {
+            DispatchQueue.main.async {
+                self.loaderView.stopAnimating()
+                self.loaderView.isHidden = true
+                self.searchBar.isHidden = false
+                self.newsTableView.isHidden = false
+                self.emptyStateView.isHidden = false
+            }
+        }
+    }
+    
+    // MARK: - Search bar
+    private func configureSearchBar() {
+        searchBar.placeholder = Constants.Common.search
+        searchBar.enablesReturnKeyAutomatically = true
+        searchBar.delegate = self
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+        mainViewModel?.actions?.shouldSearchArticleForWord(searchText)
+        searchBar.resignFirstResponder()
+        // to enable cancel button after keyboard dissmisal
+        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.isEnabled = true
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        searchBar.placeholder = Constants.Common.search
+        mainViewModel?.actions?.shouldRefreshDataSource()
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+        
     // MARK: - Refresh Control
     private func configureRefreshControl() {
         let refreshControl = UIRefreshControl()
@@ -51,7 +106,9 @@ class MainViewController: UIViewController, UITableViewDelegate {
     private func configureDataSource() {
         guard let articles = mainViewModel?.articles else { return }
         if articles.isEmpty {
-            newsTableView.isHidden = true
+            DispatchQueue.main.async {
+                self.newsTableView.isHidden = true
+            }
         } else {
             dataSource = ArticlesTableViewDataSource(
                 cellIdentifier: Constants.Main.cellIdentifier,
@@ -78,7 +135,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
     // MARK: - Pagination
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let position = scrollView.contentOffset.y
-        if position > (newsTableView.contentSize.height - 100 - scrollView.frame.size.height) {
+        if position > (newsTableView.contentSize.height - Constants.Main.bottomDistance - scrollView.frame.size.height) {
             newsTableView.tableFooterView = addLoadingCell()
             mainViewModel?.actions?.shouldFetchNextDataPage()
             stopLoadingWhenNeeded()
@@ -103,6 +160,7 @@ class MainViewController: UIViewController, UITableViewDelegate {
         }
     }
     
+    // for deselecting cell after tap
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }

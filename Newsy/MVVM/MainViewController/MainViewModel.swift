@@ -14,17 +14,23 @@ protocol MainViewModelProtocol: class {
 }
 
 class MainViewModelActions {
+    var stopInitialLoader: () -> () = {}
     var shouldRefreshDataSource: () -> () = {}
     var shouldFetchNextDataPage: () -> () = {}
     var shouldOpenWebView: (UIViewController, Article) -> () = { _, _ in }
     var shouldFinishLoading: () -> () = {}
     var shouldSaveFavourite: (Article) -> () = { _ in }
-    // sort actions
+    var shouldSearchArticleForWord: (String) -> () = { _ in }
+}
+
+enum FilterType {
+    case category, country, sources
 }
 
 class MainViewModel: NSObject, MainViewModelProtocol {
     private var apiService: ApiServiceProtocol?
     var actions: MainViewModelActions?
+    private var shouldSortByPublishedAt: Bool = false
     
     private(set) var articles: [Article]? {
         didSet {
@@ -55,6 +61,9 @@ class MainViewModel: NSObject, MainViewModelProtocol {
         actions?.shouldOpenWebView = { [unowned self] viewController, article in
             self.goToWebPage(from: viewController, article)
         }
+        actions?.shouldSearchArticleForWord = { [unowned self] word in
+            self.search(word)
+        }
     }
     
     private func save(_ article: Article) {
@@ -69,6 +78,7 @@ class MainViewModel: NSObject, MainViewModelProtocol {
         apiService?.getArticlesData { [unowned self] result in
             switch result {
             case .success(let articles):
+                self.actions?.stopInitialLoader()
                 self.articles = articles
             case .failure(let error):
                 print(Constants.Error.requestError(error.localizedDescription))
@@ -79,12 +89,26 @@ class MainViewModel: NSObject, MainViewModelProtocol {
     private func fetchNextPage() {
         guard let isPaginating = apiService?.isPaginating else { return }
         if !isPaginating {
-            apiService?.getNextDataPage { result in
+            apiService?.getNextDataPage { [weak self] result in
                 switch result {
                 case .success(let newArticles):
                     guard let newArticles = newArticles else { return }
-                    self.articles?.append(contentsOf: newArticles)
-                    self.actions?.shouldFinishLoading()
+                    self?.articles?.append(contentsOf: newArticles)
+                    self?.actions?.shouldFinishLoading()
+                case .failure(let error):
+                    print(Constants.Error.requestError(error.localizedDescription))
+                }
+            }
+        }
+    }
+    
+    private func search(_ word: String) {
+        if !word.isEmpty {
+            apiService?.search(for: word) { [weak self] result in
+                switch result {
+                case .success(let articles):
+                    guard let searchResult = articles else { return }
+                    self?.articles = searchResult
                 case .failure(let error):
                     print(Constants.Error.requestError(error.localizedDescription))
                 }
